@@ -4,7 +4,7 @@ public class Banco {
 
     }
 
-    public synchronized void transferência (Conta remetente, Conta beneficiario, double dinheiro){
+    public synchronized void transferencia (Conta remetente, Conta beneficiario, double dinheiro){
 
         if(remetente.saque(dinheiro)){
             beneficiario.deposito(dinheiro);

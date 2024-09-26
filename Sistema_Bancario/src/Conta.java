@@ -41,6 +41,13 @@ public class Conta {
 
             return false;
         }
+
+        
+    }
+
+    public synchronized double consultaSaldo (){
+
+        return saldo;
     }
 
 }

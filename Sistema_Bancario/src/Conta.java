@@ -16,7 +16,7 @@ public class Conta {
 
         saldo += dinheiro ;
 
-        System.out.println(Thread.currentThread()+"foram depositados R$ " + dinheiro + "na sua conta");
+        System.out.println(Thread.currentThread()+"foram depositados R$ " + dinheiro + " na sua conta");
 
     } 
     else {
@@ -30,7 +30,7 @@ public class Conta {
 
             saldo -= dinheiro ;
 
-            System.out.println(Thread.currentThread()+"Você sacou R$" + dinheiro + "da sua conta. Seu saldo foi atualizado para R$" + saldo);
+            System.out.println(Thread.currentThread()+"Você sacou R$" + dinheiro + " da sua conta. Seu saldo foi atualizado para R$" + saldo);
 
             return true ;
         }

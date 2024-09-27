@@ -15,10 +15,25 @@ public class Cliente implements Runnable {
 
     }
 
-    public String getnomeCliente(){
-        return nomeCliente;
+    private void fazCompra(Loja loja) throws    InterruptedException {
+
+        double valorCompra = 200 + (300 * compras.nextDouble());
+
+        if (conta.consultaSaldo() >= valorCompra){
+
+            conta.saque(valorCompra);
+            loja.realizaVenda(valorCompra);
+
+            System.out.println(nomeCliente + "fez uma compra na loja " + loja.getnomeLoja() + "e custou R$ " + valorCompra);
+        }
+        else{
+            System.out.println("Não foi possível realizar a compra pois o saldo é insuficiente");
+        }
+
     }
 
+
+   
 
 
 }

@@ -1,10 +1,12 @@
 public class Loja {
 
+    private String nomeLoja;
     private Conta contaLoja;
     private Funcionario [] funcionarios ;
 
-    public Loja (double saldo_inicial){
-    
+    public Loja (String nomeLoja,double saldo_inicial){
+        
+        this.nomeLoja = nomeLoja;
         this.contaLoja = new Conta(0.0);
         this.funcionarios = new Funcionario [2];
     }
@@ -20,7 +22,7 @@ public class Loja {
     public synchronized void realizaVenda (double dinheiro){
 
         contaLoja.deposito(dinheiro);
-        System.out.println(" Esta loja vendeu um produto e recebeu R$" + dinheiro + "saldo atual: R$ " + contaLoja.consultaSaldo());
+        System.out.println(nomeLoja + " vendeu um produto e recebeu R$" + dinheiro + "saldo atual: R$ " + contaLoja.consultaSaldo());
         efetuaPagamento ();
 
     }
@@ -44,5 +46,8 @@ public class Loja {
         return contaLoja.consultaSaldo();
     }
 
+    public String getnomeLoja(){
+        return nomeLoja;
+    }
 
 }

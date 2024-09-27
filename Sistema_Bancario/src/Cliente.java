@@ -55,7 +55,7 @@ public class Cliente extends Thread {
             conta.saque(valorCompra);
             loja.realizaVenda(valorCompra);
 
-            System.out.println(nomeCliente + "fez uma compra na loja " + loja.getnomeLoja() + "e custou R$ " + valorCompra);
+            System.out.println(nomeCliente + "fez uma compra na loja " + loja.getNomeLoja() + "e custou R$ " + valorCompra);
         }
         
         else{

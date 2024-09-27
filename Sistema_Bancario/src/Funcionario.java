@@ -1,13 +1,15 @@
-public class Funcionario {
+public class Funcionario extends Thread {
 
     private String nome;
     private Conta contaCorrente;
     private Conta contaInvestimentos;
+    private Loja loja;
 
     public Funcionario (String nome){
         this.nome = nome;
         this.contaCorrente = new Conta(0.0);
         this.contaInvestimentos = new Conta (0.0);
+        this.loja = loja;
     }
 
     public synchronized void investimento (double dinheiro){
@@ -33,6 +35,22 @@ public class Funcionario {
 
     public double getSaldoInvestimentos(){
         return contaInvestimentos.consultaSaldo();
+    }
+
+    @Override
+
+    public void run (){
+
+        try{
+            while(loja.consultaSaldo() < 1400){
+                Thread.sleep(1000);
+            }
+
+            loja.efetuaPagamento();
+        }
+        catch (InterruptedException e){
+            e.printStackTrace();
+        }
     }
 
 }

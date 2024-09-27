@@ -46,8 +46,7 @@ public class Loja {
         return contaLoja.consultaSaldo();
     }
 
-    public String getnomeLoja(){
+    public String getNomeLoja(){
         return nomeLoja;
     }
-
 }

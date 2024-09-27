@@ -1,5 +1,3 @@
-
-
 public class Conta {
 
     private double saldo ;
@@ -10,13 +8,13 @@ public class Conta {
 
     }
 
-    public synchronized void deposito (double dinheiro){
+    public synchronized void deposito (double valor){
 
-        if (dinheiro > 0){
+        if (valor > 0){
 
-        saldo += dinheiro ;
-
-        System.out.println(Thread.currentThread()+"foram depositados R$ " + dinheiro + " na sua conta");
+        saldo += valor ;
+        
+        System.out.println(Thread.currentThread().getName()+" foram depositados R$ " + valor + " na sua conta");
 
     } 
     else {
@@ -24,13 +22,13 @@ public class Conta {
     }
     }
 
-    public synchronized boolean saque (double dinheiro){
+    public synchronized boolean saque (double valor){
 
-        if (dinheiro > 0 && saldo >= dinheiro) {
+        if (valor > 0 && saldo >= valor) {
 
-            saldo -= dinheiro ;
+            saldo -= valor ;
 
-            System.out.println(Thread.currentThread()+"Você sacou R$" + dinheiro + " da sua conta. Seu saldo foi atualizado para R$" + saldo);
+            System.out.println(Cliente.currentThread().getName()+" sacou R$" + valor + " . Seu saldo foi atualizado para R$" + saldo);
 
             return true ;
         }

@@ -15,6 +15,7 @@ public class Loja {
 
         if (n >= 0 && n < funcionarios.length){
             funcionarios [n] = trabalhador;
+            System.out.println(trabalhador.getNome() +" foi contratado para a  "+ nomeLoja);
         }
 
     }
@@ -22,7 +23,7 @@ public class Loja {
     public synchronized void realizaVenda (double dinheiro){
 
         contaLoja.deposito(dinheiro);
-        System.out.println(nomeLoja + " vendeu um produto e recebeu R$" + dinheiro + "saldo atual: R$ " + contaLoja.consultaSaldo());
+        System.out.println(nomeLoja + " vendeu um produto para " + Thread.currentThread().getName() + " e recebeu R$" + dinheiro + " saldo atual: R$ " + contaLoja.consultaSaldo());
         efetuaPagamento ();
 
     }
@@ -37,7 +38,7 @@ public class Loja {
                 contaLoja.saque(salario);
                 trabalhador.recebeSalario(salario);
                
-                System.out.println(trabalhador.getNome() + "recebeu seu pagamento . O saldo atual desta loja é de R$ " + contaLoja.consultaSaldo());
+                System.out.println(trabalhador.getNome() + " recebeu seu pagamento . O saldo atual desta loja é de R$ " + contaLoja.consultaSaldo());
             }
         }
     }

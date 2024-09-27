@@ -73,5 +73,11 @@ public class Cliente extends Thread {
 
     }
 
+    public double consultaSaldo(){
+
+        return conta.consultaSaldo();
+        
+    }
+
 
 }

@@ -1,21 +1,44 @@
 public class Loja {
 
+    private String nomeLoja;
     private Conta contaLoja;
     private Funcionario [] funcionarios ;
 
-    public Loja (double saldo_inicial){
-
+    public Loja (String nomeLoja,double saldo_inicial){
+        
+        this.nomeLoja = nomeLoja;
         this.contaLoja = new Conta(0.0);
         this.funcionarios = new Funcionario [2];
     }
 
-    public synchronized contratacao (Funcionario trabalhador, int n ){
+    public synchronized void  contratacao (Funcionario trabalhador, int n ){
 
         if (n >= 0 && n < funcionarios.length){
             funcionarios [n] = trabalhador;
         }
-        
-    } 
+
+    }
+    
+    public synchronized void realizaVenda (double dinheiro){
+
+        contaLoja.deposito(dinheiro);
+        System.out.println(nomeLoja + " vendeu um produto e recebeu R$" + dinheiro + "saldo atual: R$ " + contaLoja.consultaSaldo());
+        efetuaPagamento ();
+
+    }
+
+    public synchronized void efetuaPagamento (){
+
+        double salario = 1400.00;
+
+        for (Funcionario trabalhador : funcionarios){
+            if(trabalhador != null && contaLoja.consultaSaldo() >= salario){
+                contaLoja.saque(salario);
+                trabalhador.recebeSalario(salario);
+                System.out.println(trabalhador.getNome() + "recebeu seu pagamento . O saldo atual desta loja é" + contaLoja.consultaSaldo());
+            }
+        }
+    }
 
 
 }

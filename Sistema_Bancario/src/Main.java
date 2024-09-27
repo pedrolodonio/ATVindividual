@@ -67,5 +67,15 @@ public class Main {
 
         System.out.println("Todos os funcionários e clientes finalizaram suas operações");
 
+        System.out.println("Saldo Funcionários");
+
+        for(Funcionario funcionario : funcionarios){
+
+            System.out.println(funcionario.getNome() + " Conta corrente : R$" + String.format("%.2f", funcionario.getSaldoCorrente()));
+            System.out.println(funcionario.getNome() + " Conta investimentos : R$" + String.format("%.2f", funcionario.getSaldoInvestimentos()));
+        }
+
+
+
     }
 }

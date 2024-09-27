@@ -1,6 +1,6 @@
 import java.util.Random;
 
-public class Cliente implements Runnable {
+public class Cliente extends Thread {
 
     private String nomeCliente;
     private Conta conta;

@@ -9,7 +9,13 @@ public class Loja {
         this.funcionarios = new Funcionario [2];
     }
 
-    
+    public synchronized contratacao (Funcionario trabalhador, int n ){
+
+        if (n >= 0 && n < funcionarios.length){
+            funcionarios [n] = trabalhador;
+        }
+        
+    } 
 
 
 }

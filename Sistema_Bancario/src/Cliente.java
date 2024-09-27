@@ -1,20 +1,18 @@
-import java.util.Random;
-
 public class Cliente extends Thread {
 
     private String nomeCliente;
     private Conta conta;
     private Loja LojaX;
     private Loja LojaY;
-    private Random compras;
+    private Banco banco;
 
-    public Cliente(String nomeCliente,Loja LojaX, Loja LojaY){
+    public Cliente(String nomeCliente,Loja LojaX, Loja LojaY, Banco banco){
 
         this.nomeCliente = nomeCliente;
         this.conta = new Conta(2000.00);
         this.LojaX = LojaX;
         this.LojaY = LojaY;
-        this.compras = new Random();
+        this.banco = banco;
         this.setName(nomeCliente);
 
     }
@@ -49,7 +47,7 @@ public class Cliente extends Thread {
 
     private void fazCompra(Loja loja) throws    InterruptedException {
 
-        double valorCompra = 200 + (300 * compras.nextDouble());
+        double valorCompra = 200 + Math.random ()*(300.0);
 
         if (conta.consultaSaldo() >= valorCompra){
 
@@ -65,7 +63,7 @@ public class Cliente extends Thread {
 
         }
         
-       
+       Thread.sleep(1000);
 
     }
 

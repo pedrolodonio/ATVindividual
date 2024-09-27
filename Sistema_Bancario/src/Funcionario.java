@@ -23,4 +23,16 @@ public class Funcionario {
         investimento(0.20*dinheiro);
     }
 
+    public String getNome(){
+        return nome;
+    }
+
+    public double getSaldoCorrente(){
+        return contaCorrente.consultaSaldo();
+    }
+
+    public double getSaldoInvestimentos(){
+        return contaInvestimentos.consultaSaldo();
+    }
+
 }

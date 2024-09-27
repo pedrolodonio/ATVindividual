@@ -9,15 +9,22 @@ public class Main {
         Loja LojaX = new Loja("Loja X", 0.0);
         Loja LojaY = new Loja("Loja Y", 0.0);
 
-        Funcionario funcionario1 = new Funcionario("Chloe");
-        Funcionario funcionario2 = new Funcionario("Sam");
-        Funcionario funcionario3 = new Funcionario("Sofia");
-        Funcionario funcionario4 = new Funcionario("Marcus");
+        Funcionario [] funcionarios = new Funcionario[4];
 
-        LojaX.contratacao(funcionario1, 0);
-        LojaX.contratacao(funcionario2, 1);
-        LojaY.contratacao(funcionario3, 0);
-        LojaY.contratacao(funcionario4, 1);
+        funcionarios[0] = new Funcionario("Chloe", LojaX);
+        funcionarios[1] = new Funcionario("Sam", LojaX);
+        funcionarios[2] = new Funcionario("Sophia", LojaY);
+        funcionarios[3] = new Funcionario("Marcus", LojaY);
+
+        LojaX.contratacao(funcionarios[0],0);
+        LojaX.contratacao(funcionarios[1],1);
+        LojaY.contratacao(funcionarios[2],0);
+        LojaY.contratacao(funcionarios[3],1);
+
+        funcionarios[0].start();
+        funcionarios[1].start();
+        funcionarios[2].start();
+        funcionarios[3].start();
 
         List<String> nomesClientes = new ArrayList<> ();
         nomesClientes.add("Taylor");
@@ -34,19 +41,31 @@ public class Main {
         Cliente [] clientes = new Cliente[nomesClientes.size()];
         for (int i = 0; i < clientes.length; i++) {
 
-            clientes[i] = new Cliente(nomesClientes.get(i), LojaX, LojaY);
+            clientes[i] = new Cliente(nomesClientes.get(i), LojaX, LojaY,banco);
 
             clientes[i].start();
 
         }
 
-        funcionario1.start();
-        funcionario2.start();
-        funcionario3.start();
-        funcionario4.start();
+        try {
+            for (Cliente cliente : clientes){
+                
+                cliente.join();
 
-        
-        
+            }
+
+        funcionarios[0].join();
+        funcionarios[1].join();
+        funcionarios[2].join();
+        funcionarios[3].join();
+
+
+
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+
+        System.out.println("Todos os funcionários e clientes finalizaram suas operações");
 
     }
 }

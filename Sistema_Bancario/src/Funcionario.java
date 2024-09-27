@@ -37,6 +37,7 @@ public class Funcionario extends Thread {
         return contaInvestimentos.consultaSaldo();
     }
 
+    
     @Override
 
     public void run (){

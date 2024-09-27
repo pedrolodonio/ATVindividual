@@ -24,7 +24,7 @@ public class Loja {
 
         contaLoja.deposito(dinheiro);
         System.out.println(nomeLoja + " vendeu um produto para " + Thread.currentThread().getName() + " e recebeu R$" + dinheiro + " saldo atual: R$ " + contaLoja.consultaSaldo());
-        efetuaPagamento ();
+        
 
     }
 

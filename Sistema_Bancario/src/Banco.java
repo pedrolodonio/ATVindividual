@@ -8,7 +8,7 @@ public class Banco {
 
         if(remetente.saque(dinheiro)){
             beneficiario.deposito(dinheiro);
-            System.out.println(Thread.currentThread().getName() + "transferiu R$ " + dinheiro + "para" + beneficiario );
+            System.out.println(Thread.currentThread().getName() + " transferiu R$ " + dinheiro + " para" + beneficiario );
         } 
         
         else{

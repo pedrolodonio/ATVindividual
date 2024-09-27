@@ -75,6 +75,14 @@ public class Main {
             System.out.println(funcionario.getNome() + " Conta investimentos : R$" + String.format("%.2f", funcionario.getSaldoInvestimentos()));
         }
 
+        System.out.println("Saldo Clientes");
+
+        for(Cliente cliente : clientes){
+
+            System.out.println(cliente.getnomeCliente() + " Conta: R$" + String.format("%.2f", cliente.consultaSaldo()));
+
+        }
+
 
 
     }

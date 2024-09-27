@@ -23,7 +23,7 @@ public class Loja {
     public synchronized void realizaVenda (double dinheiro){
 
         contaLoja.deposito(dinheiro);
-        System.out.println(nomeLoja + " vendeu um produto para " + Thread.currentThread().getName() + " e recebeu R$" + dinheiro + " saldo atual: R$ " + contaLoja.consultaSaldo());
+        // System.out.println(nomeLoja + " vendeu um produto para " + Thread.currentThread().getName() + " e recebeu R$" + dinheiro + " saldo atual: R$ " + contaLoja.consultaSaldo());
         
 
     }

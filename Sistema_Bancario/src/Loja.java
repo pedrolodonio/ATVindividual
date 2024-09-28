@@ -38,7 +38,7 @@ public class Loja {
                 contaLoja.saque(salario);
                 trabalhador.recebeSalario(salario);
                
-                System.out.println(trabalhador.getNome() + " recebeu seu pagamento . O saldo atual desta loja é de R$ " + contaLoja.consultaSaldo());
+                System.out.println(trabalhador.getNome() + " recebeu seu pagamento . O saldo atual da " + getNomeLoja() + " é de R$ " + String.format("%.2f", contaLoja.consultaSaldo()));
             }
         }
     }

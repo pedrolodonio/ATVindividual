@@ -18,7 +18,7 @@ public class Funcionario extends Thread {
     public synchronized void  recebeSalario (double dinheiro){
 
         contaCorrente.deposito(dinheiro);
-        System.out.println(nome+ " recebeu R$" + dinheiro);
+        System.out.println("\n" + nome+ " recebeu R$" + dinheiro);
         banco.transferencia(contaCorrente, contaInvestimentos, dinheiro * 0.20);
         System.out.println(nome+ " investiu R$" + dinheiro * 0.20);
 
